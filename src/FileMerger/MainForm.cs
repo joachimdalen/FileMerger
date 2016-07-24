@@ -74,7 +74,7 @@ namespace FileMerger {
         private void MainForm_Load(object sender, EventArgs e) {
             btnStart.Enabled = false;
             try {
-                this.Text = $@"FileMerger @ D3V - twitch.tv/Devexer";
+                this.Text = $@"FileMerger (C) SharpDevs 2016";
                 var file = new ConfigFile("", "fmSettings");
                 if (file.FileExists()) {
                     LogMessage("Loading settings..");

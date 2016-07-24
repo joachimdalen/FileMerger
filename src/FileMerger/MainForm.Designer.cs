@@ -436,7 +436,7 @@
             this.Controls.Add(this.btnSave);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "FileMerger @ D3V - twitch.tv/Devexer";
+            this.Text = "FileMerger - (C) SharpDevs 2016";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
