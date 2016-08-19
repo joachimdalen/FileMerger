@@ -14,7 +14,6 @@
             this.cbWatchOnStartUp = new System.Windows.Forms.CheckBox();
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.rtxtFormat = new System.Windows.Forms.RichTextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvFiles = new System.Windows.Forms.DataGridView();
@@ -32,6 +31,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.colKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFile = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rtxtFormat = new System.Windows.Forms.RichTextBox();
             this.gbFiles.SuspendLayout();
             this.gbSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSeconds)).BeginInit();
@@ -210,19 +210,10 @@
             this.tabPage1.Text = "Text";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // rtxtFormat
-            // 
-            this.rtxtFormat.BackColor = System.Drawing.SystemColors.Info;
-            this.rtxtFormat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtxtFormat.Location = new System.Drawing.Point(3, 3);
-            this.rtxtFormat.Name = "rtxtFormat";
-            this.rtxtFormat.Size = new System.Drawing.Size(769, 228);
-            this.rtxtFormat.TabIndex = 0;
-            this.rtxtFormat.Text = "";
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.tableLayoutPanel1);
+            this.tabPage3.ImageIndex = 2;
             this.tabPage3.Location = new System.Drawing.Point(4, 23);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -342,7 +333,7 @@
             this.imgList.TransparentColor = System.Drawing.Color.Transparent;
             this.imgList.Images.SetKeyName(0, "action_log.png");
             this.imgList.Images.SetKeyName(1, "cog.png");
-            this.imgList.Images.SetKeyName(2, "information.png");
+            this.imgList.Images.SetKeyName(2, "file_manager.png");
             // 
             // notifyIcon1
             // 
@@ -411,6 +402,16 @@
             this.colFile.Name = "colFile";
             this.colFile.ReadOnly = true;
             // 
+            // rtxtFormat
+            // 
+            this.rtxtFormat.BackColor = System.Drawing.SystemColors.Info;
+            this.rtxtFormat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtxtFormat.Location = new System.Drawing.Point(3, 3);
+            this.rtxtFormat.Name = "rtxtFormat";
+            this.rtxtFormat.Size = new System.Drawing.Size(769, 228);
+            this.rtxtFormat.TabIndex = 0;
+            this.rtxtFormat.Text = "";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -443,7 +444,8 @@
             this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
-        }        #endregion        private System.Windows.Forms.Label label4;        private System.Windows.Forms.TextBox txtFileOutput;        private System.Windows.Forms.Button btnSave;        private System.Windows.Forms.Button btnExit;        private System.Windows.Forms.GroupBox gbFiles;        private System.Windows.Forms.GroupBox gbSettings;        private System.Windows.Forms.CheckBox cbWatchOnStartUp;        private System.Windows.Forms.Button btnStart;        private System.Windows.Forms.Button btnStop;        private System.Windows.Forms.Button btnClearConfig;        private System.Windows.Forms.TabControl tcMain;        private System.Windows.Forms.TabPage tabPage1;        private System.Windows.Forms.TabPage tabPage2;        private System.Windows.Forms.RichTextBox rtxtLog;        private System.Windows.Forms.ImageList imgList;        private System.Windows.Forms.NotifyIcon notifyIcon1;        private System.Windows.Forms.CheckBox cbSystemTray;        private System.Windows.Forms.RichTextBox rtxtFormat;        private System.Windows.Forms.Button btnMergeFilesNow;        private System.Windows.Forms.NumericUpDown nudSeconds;        private System.Windows.Forms.Label label7;        private System.Windows.Forms.Button btnWriteLog;        private System.Windows.Forms.Button btnFileOutput;        private System.Windows.Forms.TabPage tabPage3;        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;        private System.Windows.Forms.DataGridView dgvFiles;        private System.Windows.Forms.Panel panel1;        private System.Windows.Forms.Button btnRemoveSelected;        private System.Windows.Forms.Button btnAddFile;        private System.Windows.Forms.Button btnCopyKey;
+        }        #endregion        private System.Windows.Forms.Label label4;        private System.Windows.Forms.TextBox txtFileOutput;        private System.Windows.Forms.Button btnSave;        private System.Windows.Forms.Button btnExit;        private System.Windows.Forms.GroupBox gbFiles;        private System.Windows.Forms.GroupBox gbSettings;        private System.Windows.Forms.CheckBox cbWatchOnStartUp;        private System.Windows.Forms.Button btnStart;        private System.Windows.Forms.Button btnStop;        private System.Windows.Forms.Button btnClearConfig;        private System.Windows.Forms.TabControl tcMain;        private System.Windows.Forms.TabPage tabPage1;        private System.Windows.Forms.TabPage tabPage2;        private System.Windows.Forms.RichTextBox rtxtLog;        private System.Windows.Forms.ImageList imgList;        private System.Windows.Forms.NotifyIcon notifyIcon1;        private System.Windows.Forms.CheckBox cbSystemTray;        private System.Windows.Forms.Button btnMergeFilesNow;        private System.Windows.Forms.NumericUpDown nudSeconds;        private System.Windows.Forms.Label label7;        private System.Windows.Forms.Button btnWriteLog;        private System.Windows.Forms.Button btnFileOutput;        private System.Windows.Forms.TabPage tabPage3;        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;        private System.Windows.Forms.DataGridView dgvFiles;        private System.Windows.Forms.Panel panel1;        private System.Windows.Forms.Button btnRemoveSelected;        private System.Windows.Forms.Button btnAddFile;        private System.Windows.Forms.Button btnCopyKey;
         private System.Windows.Forms.DataGridViewTextBoxColumn colKey;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFile;
+        private System.Windows.Forms.RichTextBox rtxtFormat;
     }}

@@ -3,4 +3,9 @@
                       MessageBoxIcon.Error);                }                else {
                     DialogResult = DialogResult.OK;
                     Close();
-                }            }            else {                MessageBox.Show($"Could not find the file {txtPath.Text}", @"File not found", MessageBoxButtons.OK,                    MessageBoxIcon.Error);            }        }        private void btnFindFile_Click(object sender, EventArgs e) {            try {                var ofd = new OpenFileDialog {                    Filter = @"Textfiles|*.txt",                    Multiselect = false,                    CheckFileExists = true                };                if (ofd.ShowDialog() == DialogResult.OK) {                    txtPath.Text = ofd.FileName;                }            }            catch (Exception ex) {                MessageBox.Show($"Failed to get path Error: {ex}", @"Error", MessageBoxButtons.OK,                  MessageBoxIcon.Error);            }        }    }}
+                }            }            else {                MessageBox.Show($"Could not find the file {txtPath.Text}", @"File not found", MessageBoxButtons.OK,                    MessageBoxIcon.Error);            }        }        private void btnFindFile_Click(object sender, EventArgs e) {            try {                var ofd = new OpenFileDialog {                    Filter = @"Textfiles|*.txt",                    Multiselect = false,                    CheckFileExists = true                };                if (ofd.ShowDialog() == DialogResult.OK) {                    txtPath.Text = ofd.FileName;                }            }            catch (Exception ex) {                MessageBox.Show($"Failed to get path Error: {ex}", @"Error", MessageBoxButtons.OK,                  MessageBoxIcon.Error);            }        }
+
+        private void btnCancel_Click(object sender, EventArgs e) {
+            Close();
+        }
+    }}
