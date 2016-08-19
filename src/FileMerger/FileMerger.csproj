@@ -67,6 +67,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddFile.Designer.cs">
+      <DependentUpon>AddFile.cs</DependentUpon>
+    </Compile>
     <Compile Include="FileMergerSettings.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -76,24 +82,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddFile.resx">
+      <DependentUpon>AddFile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="D3V.snk" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -104,30 +112,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\folder_search.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\disk.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cancel.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\control_play_blue.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\control_stop_blue.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="greenIcon.ico" />
-    <None Include="Resources\action_log.png" />
-    <None Include="Resources\Small.png" />
-    <None Include="Resources\arrow_merge.png" />
-    <None Include="Resources\globe_place.png" />
-    <None Include="Resources\twitchtv.png" />
-    <None Include="Resources\Twitter.png" />
+    <None Include="Resources\key_solid.png" />
+    <None Include="Resources\page_copy.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\disk.png" />
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\control_stop_blue.png" />
+    <None Include="Resources\control_play_blue.png" />
     <None Include="Resources\cog_delete.png" />
+    <None Include="Resources\arrow_merge.png" />
+    <None Include="Resources\action_log.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
