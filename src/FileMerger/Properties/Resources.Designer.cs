@@ -73,6 +73,16 @@ namespace FileMerger.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add {
+            get {
+                object obj = ResourceManager.GetObject("add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrow_merge {
             get {
                 object obj = ResourceManager.GetObject("arrow_merge", resourceCulture);
@@ -133,9 +143,9 @@ namespace FileMerger.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap folder_search {
+        internal static System.Drawing.Bitmap key_solid {
             get {
-                object obj = ResourceManager.GetObject("folder_search", resourceCulture);
+                object obj = ResourceManager.GetObject("key_solid", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,39 +153,9 @@ namespace FileMerger.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap globe_place {
+        internal static System.Drawing.Bitmap page_copy {
             get {
-                object obj = ResourceManager.GetObject("globe_place", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Small {
-            get {
-                object obj = ResourceManager.GetObject("Small", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap twitchtv {
-            get {
-                object obj = ResourceManager.GetObject("twitchtv", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Twitter {
-            get {
-                object obj = ResourceManager.GetObject("Twitter", resourceCulture);
+                object obj = ResourceManager.GetObject("page_copy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

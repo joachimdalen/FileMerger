@@ -25,35 +25,35 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtFileOne = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtFileTwo = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtFileThree = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtFileOutput = new System.Windows.Forms.TextBox();
             this.gbFiles = new System.Windows.Forms.GroupBox();
-            this.btnFileOutput = new System.Windows.Forms.Button();
-            this.btnFileThree = new System.Windows.Forms.Button();
-            this.btnFileTwo = new System.Windows.Forms.Button();
-            this.btnFileOne = new System.Windows.Forms.Button();
             this.gbSettings = new System.Windows.Forms.GroupBox();
             this.nudSeconds = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnWriteLog = new System.Windows.Forms.Button();
-            this.btnMergeFilesNow = new System.Windows.Forms.Button();
-            this.btnClearConfig = new System.Windows.Forms.Button();
             this.cbSystemTray = new System.Windows.Forms.CheckBox();
             this.cbWatchOnStartUp = new System.Windows.Forms.CheckBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tcMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label6 = new System.Windows.Forms.Label();
             this.rtxtFormat = new System.Windows.Forms.RichTextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dgvFiles = new System.Windows.Forms.DataGridView();
+            this.ColNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFile = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.rtxtLog = new System.Windows.Forms.RichTextBox();
             this.imgList = new System.Windows.Forms.ImageList(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.btnCopyKey = new System.Windows.Forms.Button();
+            this.btnRemoveSelected = new System.Windows.Forms.Button();
+            this.btnAddFile = new System.Windows.Forms.Button();
+            this.btnWriteLog = new System.Windows.Forms.Button();
+            this.btnMergeFilesNow = new System.Windows.Forms.Button();
+            this.btnClearConfig = new System.Windows.Forms.Button();
+            this.btnFileOutput = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
@@ -61,63 +61,19 @@
             this.gbFiles.SuspendLayout();
             this.gbSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSeconds)).BeginInit();
-            this.tabControl1.SuspendLayout();
+            this.tcMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFiles)).BeginInit();
+            this.panel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "File 1:";
-            // 
-            // txtFileOne
-            // 
-            this.txtFileOne.Location = new System.Drawing.Point(55, 19);
-            this.txtFileOne.Name = "txtFileOne";
-            this.txtFileOne.Size = new System.Drawing.Size(273, 20);
-            this.txtFileOne.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "File 2:";
-            // 
-            // txtFileTwo
-            // 
-            this.txtFileTwo.Location = new System.Drawing.Point(55, 45);
-            this.txtFileTwo.Name = "txtFileTwo";
-            this.txtFileTwo.Size = new System.Drawing.Size(273, 20);
-            this.txtFileTwo.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 74);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "File 3:";
-            // 
-            // txtFileThree
-            // 
-            this.txtFileThree.Location = new System.Drawing.Point(55, 71);
-            this.txtFileThree.Name = "txtFileThree";
-            this.txtFileThree.Size = new System.Drawing.Size(273, 20);
-            this.txtFileThree.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 100);
+            this.label4.Location = new System.Drawing.Point(13, 21);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 13);
             this.label4.TabIndex = 0;
@@ -125,71 +81,22 @@
             // 
             // txtFileOutput
             // 
-            this.txtFileOutput.Location = new System.Drawing.Point(55, 97);
+            this.txtFileOutput.Location = new System.Drawing.Point(57, 18);
             this.txtFileOutput.Name = "txtFileOutput";
             this.txtFileOutput.Size = new System.Drawing.Size(273, 20);
             this.txtFileOutput.TabIndex = 1;
             // 
             // gbFiles
             // 
-            this.gbFiles.Controls.Add(this.txtFileOne);
-            this.gbFiles.Controls.Add(this.label1);
-            this.gbFiles.Controls.Add(this.label2);
             this.gbFiles.Controls.Add(this.btnFileOutput);
-            this.gbFiles.Controls.Add(this.txtFileTwo);
-            this.gbFiles.Controls.Add(this.btnFileThree);
-            this.gbFiles.Controls.Add(this.label3);
-            this.gbFiles.Controls.Add(this.btnFileTwo);
-            this.gbFiles.Controls.Add(this.txtFileThree);
-            this.gbFiles.Controls.Add(this.btnFileOne);
             this.gbFiles.Controls.Add(this.label4);
             this.gbFiles.Controls.Add(this.txtFileOutput);
-            this.gbFiles.Location = new System.Drawing.Point(12, 12);
+            this.gbFiles.Location = new System.Drawing.Point(392, 267);
             this.gbFiles.Name = "gbFiles";
-            this.gbFiles.Size = new System.Drawing.Size(374, 130);
+            this.gbFiles.Size = new System.Drawing.Size(374, 109);
             this.gbFiles.TabIndex = 4;
             this.gbFiles.TabStop = false;
             this.gbFiles.Text = "Files";
-            // 
-            // btnFileOutput
-            // 
-            this.btnFileOutput.Image = ((System.Drawing.Image)(resources.GetObject("btnFileOutput.Image")));
-            this.btnFileOutput.Location = new System.Drawing.Point(334, 95);
-            this.btnFileOutput.Name = "btnFileOutput";
-            this.btnFileOutput.Size = new System.Drawing.Size(30, 23);
-            this.btnFileOutput.TabIndex = 2;
-            this.btnFileOutput.UseVisualStyleBackColor = true;
-            this.btnFileOutput.Click += new System.EventHandler(this.btnFileOutput_Click);
-            // 
-            // btnFileThree
-            // 
-            this.btnFileThree.Image = ((System.Drawing.Image)(resources.GetObject("btnFileThree.Image")));
-            this.btnFileThree.Location = new System.Drawing.Point(334, 69);
-            this.btnFileThree.Name = "btnFileThree";
-            this.btnFileThree.Size = new System.Drawing.Size(30, 23);
-            this.btnFileThree.TabIndex = 2;
-            this.btnFileThree.UseVisualStyleBackColor = true;
-            this.btnFileThree.Click += new System.EventHandler(this.btnFileThree_Click);
-            // 
-            // btnFileTwo
-            // 
-            this.btnFileTwo.Image = ((System.Drawing.Image)(resources.GetObject("btnFileTwo.Image")));
-            this.btnFileTwo.Location = new System.Drawing.Point(334, 43);
-            this.btnFileTwo.Name = "btnFileTwo";
-            this.btnFileTwo.Size = new System.Drawing.Size(30, 23);
-            this.btnFileTwo.TabIndex = 2;
-            this.btnFileTwo.UseVisualStyleBackColor = true;
-            this.btnFileTwo.Click += new System.EventHandler(this.btnFileTwo_Click);
-            // 
-            // btnFileOne
-            // 
-            this.btnFileOne.Image = global::FileMerger.Properties.Resources.folder_search;
-            this.btnFileOne.Location = new System.Drawing.Point(334, 18);
-            this.btnFileOne.Name = "btnFileOne";
-            this.btnFileOne.Size = new System.Drawing.Size(30, 23);
-            this.btnFileOne.TabIndex = 2;
-            this.btnFileOne.UseVisualStyleBackColor = true;
-            this.btnFileOne.Click += new System.EventHandler(this.btnFileOne_Click);
             // 
             // gbSettings
             // 
@@ -200,7 +107,7 @@
             this.gbSettings.Controls.Add(this.btnClearConfig);
             this.gbSettings.Controls.Add(this.cbSystemTray);
             this.gbSettings.Controls.Add(this.cbWatchOnStartUp);
-            this.gbSettings.Location = new System.Drawing.Point(12, 148);
+            this.gbSettings.Location = new System.Drawing.Point(12, 267);
             this.gbSettings.Name = "gbSettings";
             this.gbSettings.Size = new System.Drawing.Size(374, 109);
             this.gbSettings.TabIndex = 5;
@@ -238,6 +145,208 @@
             this.label7.TabIndex = 2;
             this.label7.Text = "Refresh interval (Seconds):";
             // 
+            // cbSystemTray
+            // 
+            this.cbSystemTray.AutoSize = true;
+            this.cbSystemTray.Location = new System.Drawing.Point(7, 43);
+            this.cbSystemTray.Name = "cbSystemTray";
+            this.cbSystemTray.Size = new System.Drawing.Size(172, 17);
+            this.cbSystemTray.TabIndex = 0;
+            this.cbSystemTray.Text = "Minimize window to system tray";
+            this.cbSystemTray.UseVisualStyleBackColor = true;
+            // 
+            // cbWatchOnStartUp
+            // 
+            this.cbWatchOnStartUp.AutoSize = true;
+            this.cbWatchOnStartUp.Location = new System.Drawing.Point(7, 20);
+            this.cbWatchOnStartUp.Name = "cbWatchOnStartUp";
+            this.cbWatchOnStartUp.Size = new System.Drawing.Size(165, 17);
+            this.cbWatchOnStartUp.TabIndex = 0;
+            this.cbWatchOnStartUp.Text = "Start watching files on startup";
+            this.cbWatchOnStartUp.UseVisualStyleBackColor = true;
+            // 
+            // tcMain
+            // 
+            this.tcMain.Controls.Add(this.tabPage1);
+            this.tcMain.Controls.Add(this.tabPage3);
+            this.tcMain.Controls.Add(this.tabPage2);
+            this.tcMain.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tcMain.ImageList = this.imgList;
+            this.tcMain.Location = new System.Drawing.Point(0, 0);
+            this.tcMain.Name = "tcMain";
+            this.tcMain.SelectedIndex = 0;
+            this.tcMain.Size = new System.Drawing.Size(783, 261);
+            this.tcMain.TabIndex = 6;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.rtxtFormat);
+            this.tabPage1.ImageIndex = 1;
+            this.tabPage1.Location = new System.Drawing.Point(4, 23);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(775, 234);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Text";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // rtxtFormat
+            // 
+            this.rtxtFormat.BackColor = System.Drawing.SystemColors.Info;
+            this.rtxtFormat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtxtFormat.Location = new System.Drawing.Point(3, 3);
+            this.rtxtFormat.Name = "rtxtFormat";
+            this.rtxtFormat.Size = new System.Drawing.Size(769, 228);
+            this.rtxtFormat.TabIndex = 0;
+            this.rtxtFormat.Text = "";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.tableLayoutPanel1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 23);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(775, 234);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Input";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.dgvFiles, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(769, 228);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // dgvFiles
+            // 
+            this.dgvFiles.AllowUserToAddRows = false;
+            this.dgvFiles.AllowUserToDeleteRows = false;
+            this.dgvFiles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvFiles.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvFiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFiles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColNr,
+            this.colKey,
+            this.colFile});
+            this.dgvFiles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvFiles.Location = new System.Drawing.Point(3, 43);
+            this.dgvFiles.MultiSelect = false;
+            this.dgvFiles.Name = "dgvFiles";
+            this.dgvFiles.ReadOnly = true;
+            this.dgvFiles.RowHeadersVisible = false;
+            this.dgvFiles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFiles.Size = new System.Drawing.Size(763, 182);
+            this.dgvFiles.TabIndex = 0;
+            // 
+            // ColNr
+            // 
+            this.ColNr.HeaderText = "Nr";
+            this.ColNr.Name = "ColNr";
+            this.ColNr.ReadOnly = true;
+            // 
+            // colKey
+            // 
+            this.colKey.HeaderText = "Key";
+            this.colKey.Name = "colKey";
+            this.colKey.ReadOnly = true;
+            // 
+            // colFile
+            // 
+            this.colFile.HeaderText = "File";
+            this.colFile.Name = "colFile";
+            this.colFile.ReadOnly = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnCopyKey);
+            this.panel1.Controls.Add(this.btnRemoveSelected);
+            this.panel1.Controls.Add(this.btnAddFile);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(763, 34);
+            this.panel1.TabIndex = 1;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.rtxtLog);
+            this.tabPage2.ImageIndex = 0;
+            this.tabPage2.Location = new System.Drawing.Point(4, 23);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(775, 234);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Log";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // rtxtLog
+            // 
+            this.rtxtLog.BackColor = System.Drawing.SystemColors.Info;
+            this.rtxtLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtxtLog.Location = new System.Drawing.Point(3, 3);
+            this.rtxtLog.Name = "rtxtLog";
+            this.rtxtLog.ReadOnly = true;
+            this.rtxtLog.Size = new System.Drawing.Size(769, 228);
+            this.rtxtLog.TabIndex = 0;
+            this.rtxtLog.Text = "";
+            // 
+            // imgList
+            // 
+            this.imgList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgList.ImageStream")));
+            this.imgList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imgList.Images.SetKeyName(0, "action_log.png");
+            this.imgList.Images.SetKeyName(1, "cog.png");
+            this.imgList.Images.SetKeyName(2, "information.png");
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "FileMerger";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
+            // btnCopyKey
+            // 
+            this.btnCopyKey.Image = global::FileMerger.Properties.Resources.key_solid;
+            this.btnCopyKey.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCopyKey.Location = new System.Drawing.Point(293, 5);
+            this.btnCopyKey.Name = "btnCopyKey";
+            this.btnCopyKey.Size = new System.Drawing.Size(137, 23);
+            this.btnCopyKey.TabIndex = 1;
+            this.btnCopyKey.Text = "Copy Key";
+            this.btnCopyKey.UseVisualStyleBackColor = true;
+            // 
+            // btnRemoveSelected
+            // 
+            this.btnRemoveSelected.Image = global::FileMerger.Properties.Resources.cancel;
+            this.btnRemoveSelected.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRemoveSelected.Location = new System.Drawing.Point(150, 5);
+            this.btnRemoveSelected.Name = "btnRemoveSelected";
+            this.btnRemoveSelected.Size = new System.Drawing.Size(137, 23);
+            this.btnRemoveSelected.TabIndex = 0;
+            this.btnRemoveSelected.Text = "Remove Selected";
+            this.btnRemoveSelected.UseVisualStyleBackColor = true;
+            // 
+            // btnAddFile
+            // 
+            this.btnAddFile.Image = global::FileMerger.Properties.Resources.add;
+            this.btnAddFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddFile.Location = new System.Drawing.Point(7, 5);
+            this.btnAddFile.Name = "btnAddFile";
+            this.btnAddFile.Size = new System.Drawing.Size(137, 23);
+            this.btnAddFile.TabIndex = 0;
+            this.btnAddFile.Text = "Add File";
+            this.btnAddFile.UseVisualStyleBackColor = true;
+            // 
             // btnWriteLog
             // 
             this.btnWriteLog.Image = global::FileMerger.Properties.Resources.action_log;
@@ -274,111 +383,21 @@
             this.btnClearConfig.UseVisualStyleBackColor = true;
             this.btnClearConfig.Click += new System.EventHandler(this.btnClearConfig_Click);
             // 
-            // cbSystemTray
+            // btnFileOutput
             // 
-            this.cbSystemTray.AutoSize = true;
-            this.cbSystemTray.Location = new System.Drawing.Point(7, 43);
-            this.cbSystemTray.Name = "cbSystemTray";
-            this.cbSystemTray.Size = new System.Drawing.Size(172, 17);
-            this.cbSystemTray.TabIndex = 0;
-            this.cbSystemTray.Text = "Minimize window to system tray";
-            this.cbSystemTray.UseVisualStyleBackColor = true;
-            // 
-            // cbWatchOnStartUp
-            // 
-            this.cbWatchOnStartUp.AutoSize = true;
-            this.cbWatchOnStartUp.Location = new System.Drawing.Point(7, 20);
-            this.cbWatchOnStartUp.Name = "cbWatchOnStartUp";
-            this.cbWatchOnStartUp.Size = new System.Drawing.Size(165, 17);
-            this.cbWatchOnStartUp.TabIndex = 0;
-            this.cbWatchOnStartUp.Text = "Start watching files on startup";
-            this.cbWatchOnStartUp.UseVisualStyleBackColor = true;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.ImageList = this.imgList;
-            this.tabControl1.Location = new System.Drawing.Point(392, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(374, 294);
-            this.tabControl1.TabIndex = 6;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.rtxtFormat);
-            this.tabPage1.ImageIndex = 1;
-            this.tabPage1.Location = new System.Drawing.Point(4, 23);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(366, 267);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Configure";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.Location = new System.Drawing.Point(6, 105);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(354, 23);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Variables: {file_one} {file_two} {file_three}";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // rtxtFormat
-            // 
-            this.rtxtFormat.BackColor = System.Drawing.SystemColors.Info;
-            this.rtxtFormat.Location = new System.Drawing.Point(6, 6);
-            this.rtxtFormat.Name = "rtxtFormat";
-            this.rtxtFormat.Size = new System.Drawing.Size(354, 96);
-            this.rtxtFormat.TabIndex = 0;
-            this.rtxtFormat.Text = "";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.rtxtLog);
-            this.tabPage2.ImageIndex = 0;
-            this.tabPage2.Location = new System.Drawing.Point(4, 23);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(366, 267);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Log";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // rtxtLog
-            // 
-            this.rtxtLog.BackColor = System.Drawing.SystemColors.Info;
-            this.rtxtLog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtxtLog.Location = new System.Drawing.Point(3, 3);
-            this.rtxtLog.Name = "rtxtLog";
-            this.rtxtLog.ReadOnly = true;
-            this.rtxtLog.Size = new System.Drawing.Size(360, 261);
-            this.rtxtLog.TabIndex = 0;
-            this.rtxtLog.Text = "";
-            // 
-            // imgList
-            // 
-            this.imgList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgList.ImageStream")));
-            this.imgList.TransparentColor = System.Drawing.Color.Transparent;
-            this.imgList.Images.SetKeyName(0, "action_log.png");
-            this.imgList.Images.SetKeyName(1, "cog.png");
-            this.imgList.Images.SetKeyName(2, "information.png");
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "FileMerger";
-            this.notifyIcon1.Visible = true;
-            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            this.btnFileOutput.Image = ((System.Drawing.Image)(resources.GetObject("btnFileOutput.Image")));
+            this.btnFileOutput.Location = new System.Drawing.Point(336, 16);
+            this.btnFileOutput.Name = "btnFileOutput";
+            this.btnFileOutput.Size = new System.Drawing.Size(30, 23);
+            this.btnFileOutput.TabIndex = 2;
+            this.btnFileOutput.UseVisualStyleBackColor = true;
+            this.btnFileOutput.Click += new System.EventHandler(this.btnFileOutput_Click);
             // 
             // btnStop
             // 
             this.btnStop.Image = global::FileMerger.Properties.Resources.control_stop_blue;
             this.btnStop.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStop.Location = new System.Drawing.Point(242, 263);
+            this.btnStop.Location = new System.Drawing.Point(622, 383);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(144, 23);
             this.btnStop.TabIndex = 3;
@@ -390,7 +409,7 @@
             // 
             this.btnStart.Image = global::FileMerger.Properties.Resources.control_play_blue;
             this.btnStart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStart.Location = new System.Drawing.Point(12, 263);
+            this.btnStart.Location = new System.Drawing.Point(12, 383);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(144, 23);
             this.btnStart.TabIndex = 3;
@@ -402,7 +421,7 @@
             // 
             this.btnExit.Image = global::FileMerger.Properties.Resources.cancel;
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(12, 292);
+            this.btnExit.Location = new System.Drawing.Point(12, 412);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 3;
@@ -414,7 +433,7 @@
             // 
             this.btnSave.Image = global::FileMerger.Properties.Resources.disk;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(311, 292);
+            this.btnSave.Location = new System.Drawing.Point(691, 412);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 3;
@@ -426,8 +445,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(774, 319);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(783, 444);
+            this.Controls.Add(this.tcMain);
             this.Controls.Add(this.gbSettings);
             this.Controls.Add(this.gbFiles);
             this.Controls.Add(this.btnStop);
@@ -445,27 +464,20 @@
             this.gbSettings.ResumeLayout(false);
             this.gbSettings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSeconds)).EndInit();
-            this.tabControl1.ResumeLayout(false);
+            this.tcMain.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFiles)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtFileOne;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtFileTwo;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtFileThree;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtFileOutput;
-        private System.Windows.Forms.Button btnFileOne;
-        private System.Windows.Forms.Button btnFileTwo;
-        private System.Windows.Forms.Button btnFileThree;
-        private System.Windows.Forms.Button btnFileOutput;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.GroupBox gbFiles;
@@ -474,19 +486,29 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Button btnClearConfig;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tcMain;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.RichTextBox rtxtLog;
         private System.Windows.Forms.ImageList imgList;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.CheckBox cbSystemTray;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RichTextBox rtxtFormat;
         private System.Windows.Forms.Button btnMergeFilesNow;
         private System.Windows.Forms.NumericUpDown nudSeconds;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnWriteLog;
+        private System.Windows.Forms.Button btnFileOutput;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.DataGridView dgvFiles;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColNr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colKey;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFile;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnRemoveSelected;
+        private System.Windows.Forms.Button btnAddFile;
+        private System.Windows.Forms.Button btnCopyKey;
     }
 }
 

@@ -16,6 +16,7 @@ namespace FileMerger {
 
         private System.Timers.Timer _timer;
 
+
         //Format: 30 Day Top Donator {30_day_donator} Most Recent Donator {most_recent_donator} Followers this stream {session_follower_count}
         //Month: {30_day_donator} Recent: {most_recent_donator} and New Wolves: {session_follower_count}
         //http://www.codeproject.com/Articles/271669/Using-FileSystemWatcher-to-monitor-multiple-direct
@@ -32,24 +33,45 @@ namespace FileMerger {
         }
 
         private void btnSave_Click(object sender, EventArgs e) {
+            //try {
+            //    if (string.IsNullOrEmpty(txtFileOne.Text) || string.IsNullOrWhiteSpace(txtFileOne.Text)) {
+            //        throw new NullReferenceException("File path one can not be null");
+            //    }
+            //    if (string.IsNullOrEmpty(txtFileTwo.Text) || string.IsNullOrWhiteSpace(txtFileTwo.Text)) {
+            //        throw new NullReferenceException("File path two can not be null");
+            //    }
+            //    if (string.IsNullOrEmpty(txtFileThree.Text) || string.IsNullOrWhiteSpace(txtFileThree.Text)) {
+            //        throw new NullReferenceException("File path three can not be null");
+            //    }
+            //    if (string.IsNullOrEmpty(txtFileOutput.Text) || string.IsNullOrWhiteSpace(txtFileOutput.Text)) {
+            //        throw new NullReferenceException("File path output can not be null");
+            //    }
+            //    LogMessage("Saving settings");
+            //    var file = new ConfigFile("", "fmSettings");
+            //    file.AddConfig("fileOne", txtFileOne.Text);
+            //    file.AddConfig("fileTwo", txtFileTwo.Text);
+            //    file.AddConfig("fileThree", txtFileThree.Text);
+            //    file.AddConfig("fileOutput", txtFileOutput.Text);
+            //    file.AddConfig("runOnStart", cbWatchOnStartUp.Checked.ToString());
+            //    file.AddConfig("minimizeToTray", cbSystemTray.Checked.ToString());
+            //    file.AddConfig("fileOutputFormat", rtxtFormat.Text);
+            //    file.AddConfig("refreshInterval", nudSeconds.Value.ToString());
+            //    file.Write();
+            //    LogMessage("Settings saved");
+            //    if (MessageBox.Show("Restart required to apply new settings, restart?", "Restart?",
+            //       MessageBoxButtons.YesNo,
+            //       MessageBoxIcon.Information) == DialogResult.Yes) {
+            //        Application.Restart();
+            //    }
+            //}
+            //catch (Exception ex) {
+            //    LogMessage($"Failed to save. Error: {ex.ToString()}");
+            //    MessageBox.Show($"Failed to save. Error: {ex.ToString()}");
+
+            //}
             try {
-                if (string.IsNullOrEmpty(txtFileOne.Text) || string.IsNullOrWhiteSpace(txtFileOne.Text)) {
-                    throw new NullReferenceException("File path one can not be null");
-                }
-                if (string.IsNullOrEmpty(txtFileTwo.Text) || string.IsNullOrWhiteSpace(txtFileTwo.Text)) {
-                    throw new NullReferenceException("File path two can not be null");
-                }
-                if (string.IsNullOrEmpty(txtFileThree.Text) || string.IsNullOrWhiteSpace(txtFileThree.Text)) {
-                    throw new NullReferenceException("File path three can not be null");
-                }
-                if (string.IsNullOrEmpty(txtFileOutput.Text) || string.IsNullOrWhiteSpace(txtFileOutput.Text)) {
-                    throw new NullReferenceException("File path output can not be null");
-                }
-                LogMessage("Saving settings");
                 var file = new ConfigFile("", "fmSettings");
-                file.AddConfig("fileOne", txtFileOne.Text);
-                file.AddConfig("fileTwo", txtFileTwo.Text);
-                file.AddConfig("fileThree", txtFileThree.Text);
+                file.AddConfig("paths", GetPathsFromDictionary());
                 file.AddConfig("fileOutput", txtFileOutput.Text);
                 file.AddConfig("runOnStart", cbWatchOnStartUp.Checked.ToString());
                 file.AddConfig("minimizeToTray", cbSystemTray.Checked.ToString());
@@ -64,11 +86,14 @@ namespace FileMerger {
                 }
             }
             catch (Exception ex) {
-                LogMessage($"Failed to save. Error: {ex.ToString()}");
-                MessageBox.Show($"Failed to save. Error: {ex.ToString()}");
+                LogMessage($"Failed to save. Error: {ex}");
+                MessageBox.Show($"Failed to save. Error: {ex}");
 
             }
+        }
 
+        private string GetPathsFromDictionary() {
+            return string.Join(",", FileMergerSettings.Files.Select(x => x.Key + ";" + x.Value).ToArray());
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
@@ -79,30 +104,22 @@ namespace FileMerger {
                 if (file.FileExists()) {
                     LogMessage("Loading settings..");
                     file.Load();
-                    //Fix this 
-                    FileMergerSettings.FileOne = file.GetConfig("fileOne");
-                    FileMergerSettings.FileTwo = file.GetConfig("fileTwo");
-                    FileMergerSettings.FileThree = file.GetConfig("fileThree");
                     FileMergerSettings.FileOutput = file.GetConfig("fileOutput");
                     FileMergerSettings.StartOnStartup = Convert.ToBoolean(file.GetConfig("runOnStart"));
                     FileMergerSettings.MinimizeToTray = Convert.ToBoolean(file.GetConfig("minimizeToTray"));
                     FileMergerSettings.OutputFormat = file.GetConfig("fileOutputFormat");
                     FileMergerSettings.RefreshInterval = (double)Convert.ToInt32(file.GetConfig("refreshInterval"));
-                    txtFileOne.Text = FileMergerSettings.FileOne;
-                    txtFileTwo.Text = FileMergerSettings.FileTwo;
-                    txtFileThree.Text = FileMergerSettings.FileThree;
+                    FileMergerSettings.Files = LoadFilesFromSetting(file.GetConfig("paths"));
                     txtFileOutput.Text = FileMergerSettings.FileOutput;
                     cbWatchOnStartUp.Checked = FileMergerSettings.StartOnStartup;
                     cbSystemTray.Checked = FileMergerSettings.MinimizeToTray;
                     rtxtFormat.Text = FileMergerSettings.OutputFormat;
                     nudSeconds.Value = (decimal)FileMergerSettings.RefreshInterval;
-                    ReLoadCache(FileMergerSettings.FileOne);
-                    ReLoadCache(FileMergerSettings.FileTwo);
-                    ReLoadCache(FileMergerSettings.FileThree);
+                    ReLoadCache();
                     btnStart.Enabled = true;
                     //
                     if (FileMergerSettings.StartOnStartup) {
-                      
+
                         StartTimers();
                         gbFiles.Enabled = false;
                         gbSettings.Enabled = false;
@@ -127,21 +144,13 @@ namespace FileMerger {
                 LogMessage($"Failed to load Error: {ex.ToString()}");
                 MessageBox.Show($"Failed to load Error: {ex.ToString()}");
             }
-
-
         }
 
-        private void btnFileOne_Click(object sender, EventArgs e) {
-            txtFileOne.Text = GetFilePath();
+        private Dictionary<string, string> LoadFilesFromSetting(string input) {
+            var paths = input.Split(',');
+            return paths.Select(path => path.Split(';')).ToDictionary(parts => parts[0], parts => parts[1]);
         }
 
-        private void btnFileTwo_Click(object sender, EventArgs e) {
-            txtFileTwo.Text = GetFilePath();
-        }
-
-        private void btnFileThree_Click(object sender, EventArgs e) {
-            txtFileThree.Text = GetFilePath();
-        }
 
         private void btnFileOutput_Click(object sender, EventArgs e) {
             txtFileOutput.Text = GetFilePath();
@@ -186,23 +195,13 @@ namespace FileMerger {
         private void LogMessage(string message) {
             Invoke((MethodInvoker)delegate {
                 var log = rtxtLog.Text;
-                var newText = $"[{DateTime.Now.ToString()}] " + message + Environment.NewLine + log;
+                var newText = $"[{DateTime.Now}] " + message + Environment.NewLine + log;
                 rtxtLog.Clear();
                 rtxtLog.Text = newText;
             });
         }
 
-        private void lblTwitter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            Process.Start("https://twitter.com/JDevexer");
-        }
 
-        private void lblTwitch_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            Process.Start("https://www.twitch.tv/devexer");
-        }
-
-        private void lblWebsite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            Process.Start("http://d3v.no");
-        }
 
         private void MainForm_Resize(object sender, EventArgs e) {
 
@@ -231,12 +230,11 @@ namespace FileMerger {
 
 
 
-        private static void ReLoadCache(string fullPath) {
-
-            FileMergerSettings.FileOneCache = ReadFile(FileMergerSettings.FileOne);
-            FileMergerSettings.FileTwoCache = ReadFile(FileMergerSettings.FileTwo);
-            FileMergerSettings.FileThreeCache = ReadFile(FileMergerSettings.FileThree);
-
+        private static void ReLoadCache() {
+            FileMergerSettings.FileCache.Clear();
+            foreach (var file in FileMergerSettings.Files) {
+                FileMergerSettings.FileCache.Add(file.Key, ReadFile(file.Value));
+            }
 
         }
         //Sleep the method? Bad for updates tho..?
@@ -245,9 +243,11 @@ namespace FileMerger {
             try {
                 var outputFormat = FileMergerSettings.OutputFormat;
                 var outFile = FileMergerSettings.FileOutput;
-                outputFormat = Regex.Replace(outputFormat, "{file_one}", FileMergerSettings.FileOneCache);
-                outputFormat = Regex.Replace(outputFormat, "{file_two}", FileMergerSettings.FileTwoCache);
-                outputFormat = Regex.Replace(outputFormat, "{file_three}", FileMergerSettings.FileThreeCache);
+                foreach (var file in FileMergerSettings.FileCache) {
+                    outputFormat = Regex.Replace(outputFormat, file.Key, file.Value);
+
+                }
+
                 //Output file is locked? By writer? Dunno.. danThink
                 using (var writer = new StreamWriter(outFile, false)) {
                     writer.Write(outputFormat);
@@ -287,9 +287,7 @@ namespace FileMerger {
         private void One_Elapsed(object sender, ElapsedEventArgs e) {
             try {
                 LogMessage("Timer elapsed, updating file..");
-                FileMergerSettings.FileOneCache = ReadFile(FileMergerSettings.FileOne);
-                FileMergerSettings.FileTwoCache = ReadFile(FileMergerSettings.FileTwo);
-                FileMergerSettings.FileThreeCache = ReadFile(FileMergerSettings.FileThree);
+                ReLoadCache();
                 WriteFile();
                 LogMessage("Done updating file..");
             }
