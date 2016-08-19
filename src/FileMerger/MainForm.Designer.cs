@@ -1,36 +1,15 @@
-﻿namespace FileMerger {
-    partial class MainForm {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
-
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing) {
-            if (disposing && (components != null)) {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
+﻿namespace FileMerger {    partial class MainForm {        /// <summary>        /// Required designer variable.        /// </summary>        private System.ComponentModel.IContainer components = null;        /// <summary>        /// Clean up any resources being used.        /// </summary>        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>        protected override void Dispose(bool disposing) {            if (disposing && (components != null)) {                components.Dispose();            }            base.Dispose(disposing);        }        #region Windows Form Designer generated code        /// <summary>        /// Required method for Designer support - do not modify        /// the contents of this method with the code editor.        /// </summary>        private void InitializeComponent() {            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.label4 = new System.Windows.Forms.Label();
             this.txtFileOutput = new System.Windows.Forms.TextBox();
             this.gbFiles = new System.Windows.Forms.GroupBox();
+            this.btnFileOutput = new System.Windows.Forms.Button();
             this.gbSettings = new System.Windows.Forms.GroupBox();
             this.nudSeconds = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnWriteLog = new System.Windows.Forms.Button();
+            this.btnMergeFilesNow = new System.Windows.Forms.Button();
+            this.btnClearConfig = new System.Windows.Forms.Button();
             this.cbSystemTray = new System.Windows.Forms.CheckBox();
             this.cbWatchOnStartUp = new System.Windows.Forms.CheckBox();
             this.tcMain = new System.Windows.Forms.TabControl();
@@ -39,25 +18,20 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvFiles = new System.Windows.Forms.DataGridView();
-            this.ColNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFile = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCopyKey = new System.Windows.Forms.Button();
+            this.btnRemoveSelected = new System.Windows.Forms.Button();
+            this.btnAddFile = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.rtxtLog = new System.Windows.Forms.RichTextBox();
             this.imgList = new System.Windows.Forms.ImageList(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.btnCopyKey = new System.Windows.Forms.Button();
-            this.btnRemoveSelected = new System.Windows.Forms.Button();
-            this.btnAddFile = new System.Windows.Forms.Button();
-            this.btnWriteLog = new System.Windows.Forms.Button();
-            this.btnMergeFilesNow = new System.Windows.Forms.Button();
-            this.btnClearConfig = new System.Windows.Forms.Button();
-            this.btnFileOutput = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.colKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFile = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbFiles.SuspendLayout();
             this.gbSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSeconds)).BeginInit();
@@ -97,6 +71,16 @@
             this.gbFiles.TabIndex = 4;
             this.gbFiles.TabStop = false;
             this.gbFiles.Text = "Files";
+            // 
+            // btnFileOutput
+            // 
+            this.btnFileOutput.Image = ((System.Drawing.Image)(resources.GetObject("btnFileOutput.Image")));
+            this.btnFileOutput.Location = new System.Drawing.Point(336, 16);
+            this.btnFileOutput.Name = "btnFileOutput";
+            this.btnFileOutput.Size = new System.Drawing.Size(30, 23);
+            this.btnFileOutput.TabIndex = 2;
+            this.btnFileOutput.UseVisualStyleBackColor = true;
+            this.btnFileOutput.Click += new System.EventHandler(this.btnFileOutput_Click);
             // 
             // gbSettings
             // 
@@ -144,6 +128,42 @@
             this.label7.Size = new System.Drawing.Size(135, 13);
             this.label7.TabIndex = 2;
             this.label7.Text = "Refresh interval (Seconds):";
+            // 
+            // btnWriteLog
+            // 
+            this.btnWriteLog.Image = global::FileMerger.Properties.Resources.action_log;
+            this.btnWriteLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnWriteLog.Location = new System.Drawing.Point(246, 72);
+            this.btnWriteLog.Name = "btnWriteLog";
+            this.btnWriteLog.Size = new System.Drawing.Size(123, 23);
+            this.btnWriteLog.TabIndex = 1;
+            this.btnWriteLog.Text = "Write Log";
+            this.btnWriteLog.UseVisualStyleBackColor = true;
+            this.btnWriteLog.Click += new System.EventHandler(this.btnWriteLog_Click);
+            // 
+            // btnMergeFilesNow
+            // 
+            this.btnMergeFilesNow.Image = global::FileMerger.Properties.Resources.arrow_merge;
+            this.btnMergeFilesNow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMergeFilesNow.Location = new System.Drawing.Point(246, 43);
+            this.btnMergeFilesNow.Name = "btnMergeFilesNow";
+            this.btnMergeFilesNow.Size = new System.Drawing.Size(123, 23);
+            this.btnMergeFilesNow.TabIndex = 1;
+            this.btnMergeFilesNow.Text = "Merge Now";
+            this.btnMergeFilesNow.UseVisualStyleBackColor = true;
+            this.btnMergeFilesNow.Click += new System.EventHandler(this.btnMergeFilesNow_Click);
+            // 
+            // btnClearConfig
+            // 
+            this.btnClearConfig.Image = global::FileMerger.Properties.Resources.cog_delete;
+            this.btnClearConfig.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClearConfig.Location = new System.Drawing.Point(246, 14);
+            this.btnClearConfig.Name = "btnClearConfig";
+            this.btnClearConfig.Size = new System.Drawing.Size(123, 23);
+            this.btnClearConfig.TabIndex = 1;
+            this.btnClearConfig.Text = "Clear Config";
+            this.btnClearConfig.UseVisualStyleBackColor = true;
+            this.btnClearConfig.Click += new System.EventHandler(this.btnClearConfig_Click);
             // 
             // cbSystemTray
             // 
@@ -234,7 +254,6 @@
             this.dgvFiles.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvFiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFiles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColNr,
             this.colKey,
             this.colFile});
             this.dgvFiles.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -247,24 +266,6 @@
             this.dgvFiles.Size = new System.Drawing.Size(763, 182);
             this.dgvFiles.TabIndex = 0;
             // 
-            // ColNr
-            // 
-            this.ColNr.HeaderText = "Nr";
-            this.ColNr.Name = "ColNr";
-            this.ColNr.ReadOnly = true;
-            // 
-            // colKey
-            // 
-            this.colKey.HeaderText = "Key";
-            this.colKey.Name = "colKey";
-            this.colKey.ReadOnly = true;
-            // 
-            // colFile
-            // 
-            this.colFile.HeaderText = "File";
-            this.colFile.Name = "colFile";
-            this.colFile.ReadOnly = true;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.btnCopyKey);
@@ -275,6 +276,42 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(763, 34);
             this.panel1.TabIndex = 1;
+            // 
+            // btnCopyKey
+            // 
+            this.btnCopyKey.Image = global::FileMerger.Properties.Resources.key_solid;
+            this.btnCopyKey.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCopyKey.Location = new System.Drawing.Point(293, 5);
+            this.btnCopyKey.Name = "btnCopyKey";
+            this.btnCopyKey.Size = new System.Drawing.Size(137, 23);
+            this.btnCopyKey.TabIndex = 1;
+            this.btnCopyKey.Text = "Copy Key";
+            this.btnCopyKey.UseVisualStyleBackColor = true;
+            this.btnCopyKey.Click += new System.EventHandler(this.btnCopyKey_Click);
+            // 
+            // btnRemoveSelected
+            // 
+            this.btnRemoveSelected.Image = global::FileMerger.Properties.Resources.cancel;
+            this.btnRemoveSelected.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRemoveSelected.Location = new System.Drawing.Point(150, 5);
+            this.btnRemoveSelected.Name = "btnRemoveSelected";
+            this.btnRemoveSelected.Size = new System.Drawing.Size(137, 23);
+            this.btnRemoveSelected.TabIndex = 0;
+            this.btnRemoveSelected.Text = "Remove Selected";
+            this.btnRemoveSelected.UseVisualStyleBackColor = true;
+            this.btnRemoveSelected.Click += new System.EventHandler(this.btnRemoveSelected_Click);
+            // 
+            // btnAddFile
+            // 
+            this.btnAddFile.Image = global::FileMerger.Properties.Resources.add;
+            this.btnAddFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddFile.Location = new System.Drawing.Point(7, 5);
+            this.btnAddFile.Name = "btnAddFile";
+            this.btnAddFile.Size = new System.Drawing.Size(137, 23);
+            this.btnAddFile.TabIndex = 0;
+            this.btnAddFile.Text = "Add File";
+            this.btnAddFile.UseVisualStyleBackColor = true;
+            this.btnAddFile.Click += new System.EventHandler(this.btnAddFile_Click);
             // 
             // tabPage2
             // 
@@ -313,85 +350,6 @@
             this.notifyIcon1.Text = "FileMerger";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
-            // 
-            // btnCopyKey
-            // 
-            this.btnCopyKey.Image = global::FileMerger.Properties.Resources.key_solid;
-            this.btnCopyKey.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCopyKey.Location = new System.Drawing.Point(293, 5);
-            this.btnCopyKey.Name = "btnCopyKey";
-            this.btnCopyKey.Size = new System.Drawing.Size(137, 23);
-            this.btnCopyKey.TabIndex = 1;
-            this.btnCopyKey.Text = "Copy Key";
-            this.btnCopyKey.UseVisualStyleBackColor = true;
-            // 
-            // btnRemoveSelected
-            // 
-            this.btnRemoveSelected.Image = global::FileMerger.Properties.Resources.cancel;
-            this.btnRemoveSelected.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemoveSelected.Location = new System.Drawing.Point(150, 5);
-            this.btnRemoveSelected.Name = "btnRemoveSelected";
-            this.btnRemoveSelected.Size = new System.Drawing.Size(137, 23);
-            this.btnRemoveSelected.TabIndex = 0;
-            this.btnRemoveSelected.Text = "Remove Selected";
-            this.btnRemoveSelected.UseVisualStyleBackColor = true;
-            // 
-            // btnAddFile
-            // 
-            this.btnAddFile.Image = global::FileMerger.Properties.Resources.add;
-            this.btnAddFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddFile.Location = new System.Drawing.Point(7, 5);
-            this.btnAddFile.Name = "btnAddFile";
-            this.btnAddFile.Size = new System.Drawing.Size(137, 23);
-            this.btnAddFile.TabIndex = 0;
-            this.btnAddFile.Text = "Add File";
-            this.btnAddFile.UseVisualStyleBackColor = true;
-            // 
-            // btnWriteLog
-            // 
-            this.btnWriteLog.Image = global::FileMerger.Properties.Resources.action_log;
-            this.btnWriteLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnWriteLog.Location = new System.Drawing.Point(246, 72);
-            this.btnWriteLog.Name = "btnWriteLog";
-            this.btnWriteLog.Size = new System.Drawing.Size(123, 23);
-            this.btnWriteLog.TabIndex = 1;
-            this.btnWriteLog.Text = "Write Log";
-            this.btnWriteLog.UseVisualStyleBackColor = true;
-            this.btnWriteLog.Click += new System.EventHandler(this.btnWriteLog_Click);
-            // 
-            // btnMergeFilesNow
-            // 
-            this.btnMergeFilesNow.Image = global::FileMerger.Properties.Resources.arrow_merge;
-            this.btnMergeFilesNow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMergeFilesNow.Location = new System.Drawing.Point(246, 43);
-            this.btnMergeFilesNow.Name = "btnMergeFilesNow";
-            this.btnMergeFilesNow.Size = new System.Drawing.Size(123, 23);
-            this.btnMergeFilesNow.TabIndex = 1;
-            this.btnMergeFilesNow.Text = "Merge Now";
-            this.btnMergeFilesNow.UseVisualStyleBackColor = true;
-            this.btnMergeFilesNow.Click += new System.EventHandler(this.btnMergeFilesNow_Click);
-            // 
-            // btnClearConfig
-            // 
-            this.btnClearConfig.Image = global::FileMerger.Properties.Resources.cog_delete;
-            this.btnClearConfig.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClearConfig.Location = new System.Drawing.Point(246, 14);
-            this.btnClearConfig.Name = "btnClearConfig";
-            this.btnClearConfig.Size = new System.Drawing.Size(123, 23);
-            this.btnClearConfig.TabIndex = 1;
-            this.btnClearConfig.Text = "Clear Config";
-            this.btnClearConfig.UseVisualStyleBackColor = true;
-            this.btnClearConfig.Click += new System.EventHandler(this.btnClearConfig_Click);
-            // 
-            // btnFileOutput
-            // 
-            this.btnFileOutput.Image = ((System.Drawing.Image)(resources.GetObject("btnFileOutput.Image")));
-            this.btnFileOutput.Location = new System.Drawing.Point(336, 16);
-            this.btnFileOutput.Name = "btnFileOutput";
-            this.btnFileOutput.Size = new System.Drawing.Size(30, 23);
-            this.btnFileOutput.TabIndex = 2;
-            this.btnFileOutput.UseVisualStyleBackColor = true;
-            this.btnFileOutput.Click += new System.EventHandler(this.btnFileOutput_Click);
             // 
             // btnStop
             // 
@@ -441,6 +399,18 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // colKey
+            // 
+            this.colKey.HeaderText = "Key";
+            this.colKey.Name = "colKey";
+            this.colKey.ReadOnly = true;
+            // 
+            // colFile
+            // 
+            this.colFile.HeaderText = "File";
+            this.colFile.Name = "colFile";
+            this.colFile.ReadOnly = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -473,42 +443,7 @@
             this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
-        }
-
-        #endregion
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtFileOutput;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.GroupBox gbFiles;
-        private System.Windows.Forms.GroupBox gbSettings;
-        private System.Windows.Forms.CheckBox cbWatchOnStartUp;
-        private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.Button btnStop;
-        private System.Windows.Forms.Button btnClearConfig;
-        private System.Windows.Forms.TabControl tcMain;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.RichTextBox rtxtLog;
-        private System.Windows.Forms.ImageList imgList;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private System.Windows.Forms.CheckBox cbSystemTray;
-        private System.Windows.Forms.RichTextBox rtxtFormat;
-        private System.Windows.Forms.Button btnMergeFilesNow;
-        private System.Windows.Forms.NumericUpDown nudSeconds;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnWriteLog;
-        private System.Windows.Forms.Button btnFileOutput;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataGridView dgvFiles;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColNr;
+        }        #endregion        private System.Windows.Forms.Label label4;        private System.Windows.Forms.TextBox txtFileOutput;        private System.Windows.Forms.Button btnSave;        private System.Windows.Forms.Button btnExit;        private System.Windows.Forms.GroupBox gbFiles;        private System.Windows.Forms.GroupBox gbSettings;        private System.Windows.Forms.CheckBox cbWatchOnStartUp;        private System.Windows.Forms.Button btnStart;        private System.Windows.Forms.Button btnStop;        private System.Windows.Forms.Button btnClearConfig;        private System.Windows.Forms.TabControl tcMain;        private System.Windows.Forms.TabPage tabPage1;        private System.Windows.Forms.TabPage tabPage2;        private System.Windows.Forms.RichTextBox rtxtLog;        private System.Windows.Forms.ImageList imgList;        private System.Windows.Forms.NotifyIcon notifyIcon1;        private System.Windows.Forms.CheckBox cbSystemTray;        private System.Windows.Forms.RichTextBox rtxtFormat;        private System.Windows.Forms.Button btnMergeFilesNow;        private System.Windows.Forms.NumericUpDown nudSeconds;        private System.Windows.Forms.Label label7;        private System.Windows.Forms.Button btnWriteLog;        private System.Windows.Forms.Button btnFileOutput;        private System.Windows.Forms.TabPage tabPage3;        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;        private System.Windows.Forms.DataGridView dgvFiles;        private System.Windows.Forms.Panel panel1;        private System.Windows.Forms.Button btnRemoveSelected;        private System.Windows.Forms.Button btnAddFile;        private System.Windows.Forms.Button btnCopyKey;
         private System.Windows.Forms.DataGridViewTextBoxColumn colKey;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFile;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnRemoveSelected;
-        private System.Windows.Forms.Button btnAddFile;
-        private System.Windows.Forms.Button btnCopyKey;
-    }
-}
-
+    }}

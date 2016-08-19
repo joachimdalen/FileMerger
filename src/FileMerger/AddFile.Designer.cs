@@ -1,29 +1,4 @@
-﻿namespace FileMerger {
-    partial class AddFile {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
-
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing) {
-            if (disposing && (components != null)) {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent() {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddFile));
+﻿namespace FileMerger {    partial class AddFile {        /// <summary>        /// Required designer variable.        /// </summary>        private System.ComponentModel.IContainer components = null;        /// <summary>        /// Clean up any resources being used.        /// </summary>        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>        protected override void Dispose(bool disposing) {            if (disposing && (components != null)) {                components.Dispose();            }            base.Dispose(disposing);        }        #region Windows Form Designer generated code        /// <summary>        /// Required method for Designer support - do not modify        /// the contents of this method with the code editor.        /// </summary>        private void InitializeComponent() {            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddFile));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPath = new System.Windows.Forms.TextBox();
@@ -73,7 +48,6 @@
             this.txtKey.BackColor = System.Drawing.SystemColors.Info;
             this.txtKey.Location = new System.Drawing.Point(50, 32);
             this.txtKey.Name = "txtKey";
-            this.txtKey.ReadOnly = true;
             this.txtKey.Size = new System.Drawing.Size(273, 20);
             this.txtKey.TabIndex = 3;
             // 
@@ -122,16 +96,4 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
-        }
-
-        #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnFindFile;
-        private System.Windows.Forms.TextBox txtPath;
-        private System.Windows.Forms.TextBox txtKey;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnCancel;
-    }
-}
+        }        #endregion        private System.Windows.Forms.Label label1;        private System.Windows.Forms.Label label2;        private System.Windows.Forms.Button btnFindFile;        private System.Windows.Forms.TextBox txtPath;        private System.Windows.Forms.TextBox txtKey;        private System.Windows.Forms.Button btnAdd;        private System.Windows.Forms.Button btnCancel;    }}
